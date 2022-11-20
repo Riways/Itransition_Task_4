@@ -1,0 +1,53 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>aspnet-Task_4-d6392bfc-41d4-473f-86d2-37289171990e</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controllers\Components\**" />
+    <Compile Remove="Models\NewFolder\**" />
+    <Compile Remove="Security\**" />
+    <Compile Remove="Views\Users\**" />
+    <Content Remove="Controllers\Components\**" />
+    <Content Remove="Models\NewFolder\**" />
+    <Content Remove="Security\**" />
+    <Content Remove="Views\Users\**" />
+    <EmbeddedResource Remove="Controllers\Components\**" />
+    <EmbeddedResource Remove="Models\NewFolder\**" />
+    <EmbeddedResource Remove="Security\**" />
+    <EmbeddedResource Remove="Views\Users\**" />
+    <None Remove="Controllers\Components\**" />
+    <None Remove="Models\NewFolder\**" />
+    <None Remove="Security\**" />
+    <None Remove="Views\Users\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controllers\UsersController.cs" />
+    <Compile Remove="Migrations\20221118115858_V%24.cs" />
+    <Compile Remove="Migrations\20221118115858_V%24.Designer.cs" />
+    <Compile Remove="Migrations\20221118115919_V4.cs" />
+    <Compile Remove="Migrations\20221118115919_V4.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\Home\Privacy.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.2.9" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.10" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.10" />
+  </ItemGroup>
+
+</Project>

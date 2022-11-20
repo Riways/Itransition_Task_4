@@ -1,0 +1,62 @@
+﻿@using Task_4.Models
+
+@{
+    ViewData["Title"] = "Home";
+}
+<div class="container-xl  text-left">
+    <h3 class="text-center ">Users</h3>
+    @if (@Model.Count > 0)
+    {
+        <form asp-controller="Home">
+            <div class="d-flex align-items-center m-2">
+                <button class="btn btn-danger" asp-action="DeleteUser" type="submit">Delete</button>
+                <button class="btn btn-warning mx-2"  asp-action="BlockUser" type="submit">Block</button>
+                <button class="btn btn-success" asp-action="UnblockUser" type="submit">Unblock</button>
+            </div>
+             <div class="row d-flex align-items-center text-center border-top border-bottom ">
+                   <div class="col-3 col-sm-1 col-md-2 col-lg-1 align-items-center" id="usersHeaderCol">
+                            <input type="checkbox"  id="mainSwitcher"  />
+                   </div>
+                   <div class="d-none d-sm-block col-sm-4 col-md-4 col-lg-2" id="usersHeaderCol"><h6>Id</h6></div>
+                   <div class="col-6 col-sm-2 col-md-2 col-lg-2" id="usersHeaderCol"><h6>Name</h6></div>
+                   <div class="d-none d-sm-block col-sm-4 col-md-3 col-lg-2" id="usersHeaderCol"><h6>E-mail</h6></div>
+                   <div class="d-none d-lg-block col-md-2 col-lg-2" id="usersHeaderCol"><h6>Registration date (UTC)</h6></div>
+                   <div class="d-none d-lg-block col-md-2 col-lg-2" id="usersHeaderCol"><h6>Last visit (UTC)</h6></div>
+                   <div class="col-3   d-sm-block col-sm-1 col-md-1 col-lg-1" id="usersHeaderCol"><h6>Status</h6></div>
+            </div>
+            @foreach (var user in Model)
+            {   
+            <div class="row text-center d-flex align-items-center border-top border-bottom"  >
+                 <div class="col-3 col-sm-1 col-md-2 col-lg-1 " id="usersCol">
+                     <input type="checkbox" name="userId" value="@user.Id" class="secondarySwitcher"/>
+                 </div>
+                 <div class="d-none d-sm-block col-sm-4 col-md-4 col-lg-2" id="usersCol">@user.Id </div>
+                 <div class="col-6 col-sm-2 col-md-2 col-lg-2" id="usersCol">@user.UserName</div>
+                 <div class="d-none d-sm-block col-sm-4  col-md-3 col-lg-2" id="usersCol">@user.Email</div>
+                 <div class="d-none d-lg-block col-md-2 col-lg-2" id="usersCol">@user.RegistrationDate</div>
+                 <div class="d-none d-lg-block col-md-2 col-lg-2" id="usersCol">@user.LastVisitDate</div>
+                 <div class="col-3 d-sm-block col-sm-1 col-md-1 col-lg-1" id="usersCol">
+                  @if (user.isBlocked)
+                  {
+                      <p class="text-danger">blocked</p>
+                  }
+                  else
+                  {
+                      <p class="text-success">active</p>
+                  }
+                 </div>
+             </div>
+            }
+        </form>
+    }
+    else
+    {
+        <p>There are no registred users yet</p>
+    }
+</div>
+
+<script>
+<script>
+
+
+</script>
