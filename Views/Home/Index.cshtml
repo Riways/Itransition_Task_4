@@ -35,14 +35,14 @@
                  <div class="d-none d-sm-block col-sm-4  col-md-3 col-lg-2" id="usersCol">@user.Email</div>
                  <div class="d-none d-lg-block col-md-2 col-lg-2" id="usersCol">@user.RegistrationDate</div>
                  <div class="d-none d-lg-block col-md-2 col-lg-2" id="usersCol">@user.LastVisitDate</div>
-                 <div class="col-3 d-sm-block col-sm-1 col-md-1 col-lg-1" id="usersCol">
+                 <div class="col-3 d-sm-block col-sm-1 col-md-1 col-lg-1 d-flex align-items-center" id="usersCol">
                   @if (user.isBlocked)
                   {
-                      <p class="text-danger">blocked</p>
+                      <div class="text-danger">blocked</div>
                   }
                   else
                   {
-                      <p class="text-success">active</p>
+                      <div class="text-success">active</div>
                   }
                  </div>
              </div>
