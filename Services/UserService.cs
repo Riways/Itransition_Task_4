@@ -72,6 +72,7 @@ namespace Task_4.Services
                 _db.Remove(userToDelete);
                 LogoutInactiveUserIfHeOnline(userToDelete.UserName, userPrincipal);
             }
+            _db.SaveChanges();
         }
 
         public bool IsUserBlocked(string username)
