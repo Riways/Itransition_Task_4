@@ -11,7 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlite("Filename=task.db"));
+    options.UseNpgsql(connectionString));
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
@@ -25,13 +25,6 @@ builder.Services.AddDefaultIdentity<UserModel>(options =>
     options.User.RequireUniqueEmail = true;
 })
     .AddEntityFrameworkStores<ApplicationDbContext>();
-
-builder.Services.AddAuthorization(opts => {
-    opts.AddPolicy("OnlyForUnblockedUsers", policy =>
-    {
-        policy.RequireClaim("isBlocked", "false");
-    });
-});
 
 builder.Services.AddTransient<IUserService, UserService>();
 
