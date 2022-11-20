@@ -29,8 +29,7 @@ namespace Task_4.Controllers
         public IActionResult BlockUser()
         {
             var idsToBlock = HttpContext.Request.Form["userId"];
-            foreach (var id in idsToBlock)
-                _userService.BlockUserById(id, HttpContext.User);
+             _userService.BlockUsersById(idsToBlock, HttpContext.User);
             return RedirectPermanent("~/Home/Index");
         }
         
@@ -38,8 +37,7 @@ namespace Task_4.Controllers
         public IActionResult UnblockUser()
         {
             var idsToUnblock = HttpContext.Request.Form["userId"];
-            foreach (var id in idsToUnblock)
-                _userService.UnblockUserById(id);
+            _userService.UnblockUsersById(idsToUnblock);
             return RedirectPermanent("~/Home/Index");
         }
 
@@ -47,8 +45,7 @@ namespace Task_4.Controllers
         public IActionResult DeleteUser()
         {
             var idsToDelete = HttpContext.Request.Form["userId"];
-            foreach (var id in idsToDelete)
-                _userService.DeleteUserById(id, HttpContext.User);
+            _userService.DeleteUsersById(idsToDelete, HttpContext.User);
             return RedirectPermanent("~/Home/Index");
         }
 
